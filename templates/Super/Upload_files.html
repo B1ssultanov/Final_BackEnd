@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Upload</title>
+
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all"/>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Monyedi</a>
+            </div>
+                <div class="laptop">
+                    <ul class="nav navbar-nav">
+                        <li class=" {{ active.0 }} "><a href="/">Home</a></li>
+                        <li class=" {{ active.1 }} "><a href="/phone/">Phones</a></li>
+                        <li class=" {{ active.2 }} "><a href="/headphone/">Headphones</a></li>
+                        <li class=" {{ active.3 }} "><a href="/computer/">Laptops</a></li>
+                    </ul>
+                </div>
+                <div class="phones">
+                    <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/phone">Phone</a></li>
+                          <li><a href="/computer">Laptop</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>
+{#        <form class="navbar-form navbar-left" action="/action_page.php">#}
+{#            <div class="input-group">#}
+{#                <input type="text" class="form-control" placeholder="Search">#}
+{#                <div class="input-group-btn">#}
+{#                    <button class="btn btn-default" type="submit">#}
+{#                        <i class="glyphicon glyphicon-search"></i>#}
+{#                    </button>#}
+{#                </div>#}
+{#            </div>#}
+{#        </form>#}
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href=""><span class="glyphicon glyphicon-user"></span> admin </a></li>
+          <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Home page</a></li>
+        </ul>
+      </div>
+    </nav>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+{#            <label for="category">Write the Category of product in number:</label>#}
+{#            <input type="number" name="category" id="category">#}
+{#            <br>#}
+{#            <label for="manufacturer">Write the Manufacturer of product:</label>#}
+{#            <input type="text" name="manufacturer" id="manufacturer">#}
+{#            <br>#}
+{#            <label for="name">Write the Name of product:</label>#}
+{#            <input type="text" name="name" id="name">#}
+{#            <br>#}
+{#            <label for="price">Enter the Price of product:</label>#}
+{#            <input type="number" name="price" id="price">#}
+{#            <br>#}
+{#            <label for="characteristics">Write the Characteristics of product:</label>#}
+{#            <input type="text" name="characteristics" id="characteristics">#}
+{#            <br>#}
+{#            <label for="image">Upload an image of Product:</label>#}
+{#            <input type="file" name="image" id="image">#}
+{#            <br>#}
+{#            <label for="url">write the url of product(don't mandatory):</label>#}
+{#            <input type="text" name="url" id="url">#}
+{#            <br>#}
+            <input type="submit" value="Submit">
+        </form>
+        <h3>status: {{ status }}</h3>
+        {% if status != '' %}
+            <h3><a href="/">Return into Home Page</a></h3>
+            <h3><a href="/admin_user/">Return into admin Page</a></h3>
+        {% endif %}
+</body>
+</html>

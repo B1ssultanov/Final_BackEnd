@@ -1,0 +1,26 @@
+nav{
+    font-size: 1em;
+    flex-direction: row;
+}
+.laptop{
+    display: block;
+}
+.phones{
+    display: none;
+}
+.flex_container{
+    position: relative;
+    align-content: center;
+}
+
+@media screen and (max-width: 770px){
+    .phones{
+        display: block;
+    }
+    .laptop{
+        display: none;
+    }
+    .img{
+        width: 100%;
+    }
+}

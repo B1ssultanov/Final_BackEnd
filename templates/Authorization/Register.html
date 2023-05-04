@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all"/>
+
+    <style>
+        .registration{
+            position: relative;
+            border: black 3px solid;
+            border-radius: 30px;
+            width: 40%;
+            display: grid;
+            place-items: center;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Monyedi</a>
+            </div>
+                <div class="laptop">
+                    <ul class="nav navbar-nav">
+                        <li class=" {{ active.0 }} "><a href="/">Home</a></li>
+                        <li class=" {{ active.1 }} "><a href="/phone/">Phones</a></li>
+                        <li class=" {{ active.2 }} "><a href="/headphone/">Headphones</a></li>
+                        <li class=" {{ active.3 }} "><a href="/computer/">Laptops</a></li>
+                    </ul>
+                </div>
+                <div class="phones">
+                    <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/phone">Phone</a></li>
+                          <li><a href="/computer">Laptop</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>
+{#        <form class="navbar-form navbar-left" action="/action_page.php">#}
+{#            <div class="input-group">#}
+{#                <input type="text" class="form-control" placeholder="Search">#}
+{#                <div class="input-group-btn">#}
+{#                    <button class="btn btn-default" type="submit">#}
+{#                        <i class="glyphicon glyphicon-search"></i>#}
+{#                    </button>#}
+{#                </div>#}
+{#            </div>#}
+{#        </form>#}
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    {% block content %}
+        <div class="registration">
+            <h1>Register</h1>
+            <form method="POST">
+                {% csrf_token %}
+{#                      {{ form.as_p }}#}
+{#                {{ form.error_messages.clear }}#}
+                <h4><pre>Username:              {{ form.username }}</pre></h4>
+                <h4><pre>Email:                 {{ form.email }}</pre></h4>
+                <h4><pre>Password:              {{ form.password1 }}</pre></h4>
+                <h4><pre>Password Confirmation: {{ form.password2 }}</pre></h4>
+                <p>{{ form.errors }}</p>
+{#                <button type="button" onclick="">check previous submission</button>#}
+                <pre>                 <button type="submit">Register</button></pre>
+            </form>
+        </div>
+    {% endblock %}
+
+{#{% block styles %}#}
+{#  <style>#}
+{#    /* Apply styles to form fields */#}
+{#    input[type="text"], input[type="password"], select {#}
+{#      display: block;#}
+{#      width: 100%;#}
+{#      padding: 12px;#}
+{#      border: 1px solid #ccc;#}
+{#      border-radius: 4px;#}
+{#      box-sizing: border-box;#}
+{#      margin-bottom: 16px;#}
+{#    }#}
+{##}
+{#    /* Apply styles to form button */#}
+{#    button[type="submit"] {#}
+{#      background-color: #4CAF50;#}
+{#      color: white;#}
+{#      padding: 12px 20px;#}
+{#      border: none;#}
+{#      border-radius: 4px;#}
+{#      cursor: pointer;#}
+{#    }#}
+{##}
+{#    /* Apply styles to form button on hover */#}
+{#    button[type="submit"]:hover {#}
+{#      background-color: #45a049;#}
+{#    }#}
+{#  </style>#}
+{#{% endblock %}#}
+
+</body>
+</html>

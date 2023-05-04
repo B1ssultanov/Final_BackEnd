@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.username }}</title>
+</head>
+    <div class="editUser" style="border: black solid 3px; border-radius: 10px; width: 50%; position: relative; margin: auto; padding: 10px">
+        <form method="POST">
+            {% csrf_token %}
+            <h4><pre>Username:               {{ form.username }}</pre></h4>
+            <h4><pre>Email:                  {{ form.email }}</pre></h4>
+            <h4><pre>First Name:             {{ form.first_name }}</pre></h4>
+            <h4><pre>Last Name:              {{ form.last_name }}</pre></h4>
+            <p>{{ form.errors }}</p>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
