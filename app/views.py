@@ -1,13 +1,10 @@
-import asyncio
-import requests
 from random import shuffle
 
-from bs4 import BeautifulSoup
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.db.models import Q
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views.generic.base import View
 
 from app.models import *
