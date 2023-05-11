@@ -24,7 +24,7 @@ class ProductView(View):
         #                        price=(i['price'].replace(' ', '')),
         #                        characteristics=i['description'],
         #                        image=i['image'],
-        #                        category=Categories.objects.get(id=3),
+        #                        category=Categories.objects.get(id=1),
         #                        url=i['url_to_product'])
         #     product.save()
 

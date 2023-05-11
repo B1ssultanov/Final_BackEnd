@@ -6,13 +6,13 @@ from bs4 import BeautifulSoup, Tag
 import requests
 from collections import defaultdict
 
-# url = "https://alfa.kz/phones/telefony-i-smartfony/2155-android" #1
+url = "https://alfa.kz/phones/telefony-i-smartfony/2155-android" #1
 # url = "https://alfa.kz/electronics/headphone/sort-cnfrmd_price-desc#products" #2
 
 
 # url = "https://alfa.kz/phones/telefony-i-smartfony" #1
 # url = "https://alfa.kz/electronics/headphone" #2
-url = "https://alfa.kz/pc/notebooks" #3
+# url = "https://alfa.kz/pc/notebooks" #3
 
 result = requests.get(url)
 doc = BeautifulSoup(result.text, 'html.parser')
@@ -54,7 +54,7 @@ for product in parsed_data:
     print(product['image'])
 
     img_data = requests.get(image1).content
-    with open(os.path.join(r"C:\Users\yedyg\PycharmProjects\monyedi\media\images\2023", basename(image1)), 'wb') as handler:
+    with open(os.path.join(r"C:\Users\Kumisay\Desktop\book\Monyedi\media\images\2023", basename(image1)), 'wb') as handler:
         handler.write(img_data)
 
     print(product['description'])

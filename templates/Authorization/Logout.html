@@ -60,8 +60,77 @@
       </div>
     </nav>
 
-    <p style="text-align: center">You Successfully Logged Out.</p>
-    <p style="text-align: center"><a href="/" style="text-decoration: none; color: darkorange">◀●Go to Home page●▶</a></p>
+    
+
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            /* background-image: url("https://images.unsplash.com/photo-1485802007047-7774de7208e5?dpr=1&auto=compress,format&fit=crop&w=1800&h"); */
+            background-repeat: no-repeat;
+            background: linear-gradient(to right, #d2dbd3, #b0b7be);
+            /* background: linear-gradient(to right, #ffffff, #f9fafa); */
+
+            /* background: rgb(255, 255, 255); */
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .success{
+            background-color: rgb(230, 230, 230);
+            opacity: 0.6;
+            
+            border-radius: 50px;
+
+            align-self: center;
+            /* justify-self: center; */
+            width: 350px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            justify-content: space-evenly;
+        }
+
+        @media only screen and (max-width:580px) {
+            .success{
+                width: 80%;
+                margin-top: -90px;
+            }
+            
+            .successP{
+                font-size: 20px !important;
+            }
+
+            .successLink{
+                font-size: 15px !important;
+            }
+
+            .nike{
+                width: 10px;
+                height: 10px;
+                margin-left: 30px !important;
+            }
+        }
+</style>
+<div class="success">
+    <div style="display: flex; flex-direction: column;align-content: center;">
+        <img class="nike" style="align-self: center; margin-top: -20px; margin-left: 40px;" src="https://cdn-icons-png.flaticon.com/128/5290/5290058.png" height="80px" width="80px">
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <p class="successP" style="text-align: center; font-size: 35px; font-weight: 700; color: rgb(57, 230, 14); justify-self: flex-start; ">Good Job! <br></p>
+        </div>
+        <p class="successP" style="text-align: center; font-size: 35px; font-weight: 700; color: rgb(52, 176, 38); justify-self: flex-start;">You Successfully Logged Out</p>
+
+    </div>
+    
+    <p class="successLink" style="text-align: center; font-size: 25px;"><a href="/" style="text-decoration: none; color: rgb(33, 31, 31); text-decoration: underline  solid rgb(41, 39, 39);  ;">◀●Go to Home page●▶</a></p>
+</div>
 
 </body>
 </html>
