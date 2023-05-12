@@ -1,0 +1,177 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fbfbfe;
+}
+
+.navigation{
+    position: sticky;
+    z-index: 3;
+    top: 0;
+    background-color: #222222;
+}
+
+.topper{
+    margin: 0 auto;
+    width: 90%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.card{
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    width: 390px;
+    height: 450px;
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    transition: .3s all ease-in-out;
+}
+
+.card:hover{
+    box-shadow: 0px 0px 20px;
+    transform: scale(1.005);
+}
+
+.cardBody{
+    display: flex;
+    width: inherit;
+    height: 250px;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+.margin{
+    margin: 0 auto;
+    width: 290px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.images{
+    width: 280px;
+    height: 240px;
+}
+
+.cardDescription{
+    width: 290px;
+    height: 115px;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.cardPrice{
+    text-align: left;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    display: block;
+}
+
+.hrefButton{
+    text-decoration: none;
+    color: white;
+    width: 100px;
+    height: 30px;
+    border: 1px solid green;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    transition: .3s all ease-in-out ;
+    font-size: 15px;
+    position: sticky;
+}
+
+.hrefButton:hover{
+    color: white;
+    text-decoration: none;
+    background-color: rgb(164, 84, 28);
+    border: 1px solid rgb(164, 84, 28);
+}
+
+.cardBottom{
+    margin: 0 auto;
+    width: 290px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.footer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: #222222;
+    flex-direction: column;
+}
+
+.connect{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.info{
+    width: 300px;
+    font-size: 20px;
+}
+
+.coworkers{
+    font-size: 20px;
+}
+
+
+@media only screen and (max-width: 1440px){
+    .coworkers{
+        font-size: 18px;
+    }
+
+    .info{
+        width: 250px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .coworkers{
+        font-size: 15px;
+    }
+
+    .info{
+        width: 220px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .coworkers{
+        font-size: 14px;
+    }
+
+}
+
+
+@media only screen and (max-width: 768px){
+    .coworkers{
+        font-size: 12px;
+    }
+
+    .info{
+        width: 150px;
+        font-size: 12px;
+    }
+}

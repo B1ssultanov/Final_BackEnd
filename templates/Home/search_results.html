@@ -16,25 +16,10 @@
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all"/>
 
-    <style>
-        .block{
-            display: inline-block;
-            position: relative;
-            margin: auto;
-            max-width: 300px;
-            padding: 20px;
-            border: 5px black solid;
-            border-radius: 10px;
-            margin: 20px;
-            {#position: relative;#}
-            {#background-color: white;#}
-            {#border: 1px solid black;#}
-            {#border-radius: 10px;#}
-            {#margin: 15px;#}
-            {#max-width: 320px;#}
-            {#align-content: center;#}
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style_home.css' %}" type="text/css" media="all"/>
+
+    <style>::-webkit-scrollbar { width: 0;}</style>
+
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -89,20 +74,55 @@
       </div>
     </nav>
 
+    <div class="topper">
     {% block content %}
-        <h1>Search Results</h1>
-        <ul>
         {% for i in items %}
-            <div class="block">
-                <p style="text-wrap: normal; font-size: 2vw; text-align: center">{{ i.manufacturer }}</p>
-                <a href="/{{ i.id }}"><img style="width: 100%;" src="{{ i.image.url }}" alt="{{ i.name }}"></a>
-                <p style="text-align: center; font-size: 2vw"><a href="{{ i.id }}" style="text-decoration: none; color: black">{{ i.name }}</a></p>
-                <br>
+            <div class="card">
+                <div class="margin">
+                    <div class="cardBody">
+                        <div><img class="images" src="{{ i.image.url }}" ></div>
+                    </div>
+
+                    <div class="cardDescription">
+                        {{ i.name }}
+                    </div>
+                </div>
+                <div class="cardBottom">
+                    <div class="cardPrice">
+                        <div>{{ i.price }}</div>
+                    </div>
+
+                    <a href="/{{ i.id }}" class="hrefButton">
+                        <div class="cardButton">
+                            <div class="button">Details</div>
+                        </div>
+                    </a>
+                </div>
             </div>
         {% empty %}
             <li>No results found.</li>
         {% endfor %}
         </ul>
     {% endblock %}
+    </div>
+
+    <div class="footer">
+        <div class="connect">
+            <div class="coworkers">
+                <div>Co-workers: </div>
+                <div>Ospan Abylay 210103075</div>
+                <div>Bissultanov Yedyge 210103334</div>
+                <div>Kumissay Amantay 210103312</div>
+                <div>Dilnaz Mahmutova 210103321</div>
+            </div>
+            <div class="logo">
+                <img src="../../media/logo/logo.png" width="300px" height="300px">
+            </div>
+            <div class="info">
+                <div>Email: monyedi@gmail.com</div>
+                <div>Phone: +7(747)-666-55-22</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

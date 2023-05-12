@@ -14,6 +14,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all"/>
+    <link rel="stylesheet" href="{% static 'css/style_home.css' %}" type="text/css" media="all">
+
+    <style>::-webkit-scrollbar { width: 0;}</style>
 
     <style>
         .block{
@@ -39,7 +42,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/"><img src="media/logo/logo.png" style="width: 100px; margin: -30px; margin-top: -38px" alt="logo"></a>
+                <a class="navbar-brand" href="/"><img src="../media/logo/logo.png" style="width: 100px; margin: -30px; margin-top: -38px" alt="logo"></a>
             </div>
                 <div class="laptop">
                     <ul class="nav navbar-nav">
@@ -87,25 +90,51 @@
       {% endif %}
       </div>
     </nav>
+    <div class="topper">
     {% for i in products %}
-    <div class="block">
-{#        <div class="Phone_info" style="border: black 5px solid; width: 300px;border-radius: 20px; padding: 20px; position: relative;">#}
-            <p style="text-wrap: normal; font-size: 2vw; text-align: center">{{ i.manufacturer }}</p>
-            <a href="/{{ i.id }}"><img style="width: 100%;" src="{{ i.image.url }}" alt="{{ i.name }}"></a>
-            <p style="text-align: center; font-size: 2vw"><a href="{{ i.id }}" style="text-decoration: none; color: black">{{ i.name }}</a></p>
-            <br>
-{#        </div>#}
-    </div>
-    {% endfor %}
+        <div class="card">
+            <div class="margin">
+                <div class="cardBody">
+                    <div><img class="images" src="{{ i.image.url }}" ></div>
+                </div>
 
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            {% for i in prod_size %}
-                <li class="page-item"><a class="page-link" href="/page/{{ i }}">{{ i }}</a></li>
-            {% endfor %}
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </nav>
+                <div class="cardDescription">
+                    {{ i.name }}
+                </div>
+            </div>
+            <div class="cardBottom">
+                <div class="cardPrice">
+                    <div>{{ i.price }}</div>
+                </div>
+
+                <a href="/{{ i.id }}" class="hrefButton">
+                    <div class="cardButton">
+                        <div class="button">Details</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="footer">
+        <div class="connect">
+            <div class="coworkers">
+                <div>Co-workers: </div>
+                <div>Ospan Abylay 210103075</div>
+                <div>Bissultanov Yedyge 210103334</div>
+                <div>Kumissay Amantay 210103312</div>
+                <div>Dilnaz Mahmutova 210103321</div>
+            </div>
+            <div class="logo">
+                <img src="../../media/logo/logo.png" width="300px" height="300px">
+            </div>
+            <div class="info">
+                <div>Email: monyedi@gmail.com</div>
+                <div>Phone: +7(747)-666-55-22</div>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
