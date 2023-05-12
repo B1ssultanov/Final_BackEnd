@@ -39,7 +39,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Monyedi</a>
+                <a class="navbar-brand" href="/"><img src="media/logo/logo.png" style="width: 100px; margin: -30px; margin-top: -38px" alt="logo"></a>
             </div>
                 <div class="laptop">
                     <ul class="nav navbar-nav">
@@ -91,11 +91,21 @@
     <div class="block">
 {#        <div class="Phone_info" style="border: black 5px solid; width: 300px;border-radius: 20px; padding: 20px; position: relative;">#}
             <p style="text-wrap: normal; font-size: 2vw; text-align: center">{{ i.manufacturer }}</p>
-            <a href="{{ i.id }}"><img style="width: 100%;" src="{{ i.image.url }}" alt="{{ i.name }}"></a>
+            <a href="/{{ i.id }}"><img style="width: 100%;" src="{{ i.image.url }}" alt="{{ i.name }}"></a>
             <p style="text-align: center; font-size: 2vw"><a href="{{ i.id }}" style="text-decoration: none; color: black">{{ i.name }}</a></p>
             <br>
 {#        </div>#}
     </div>
     {% endfor %}
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            {% for i in prod_size %}
+                <li class="page-item"><a class="page-link" href="/page/{{ i }}">{{ i }}</a></li>
+            {% endfor %}
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
 </body>
 </html>

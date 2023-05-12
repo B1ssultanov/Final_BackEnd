@@ -54,7 +54,7 @@ for product in parsed_data:
     print(product['image'])
 
     img_data = requests.get(image1).content
-    with open(os.path.join(r"C:\Users\Kumisay\Desktop\book\Monyedi\media\images\2023", basename(image1)), 'wb') as handler:
+    with open(os.path.join(r"C:\Users\yedyg\Desktop\book\Monyedi\media\images\2023", basename(image1)), 'wb') as handler:
         handler.write(img_data)
 
     print(product['description'])

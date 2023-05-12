@@ -1,3 +1,4 @@
+from math import ceil
 from random import shuffle
 
 from django.contrib.auth import authenticate
@@ -30,10 +31,14 @@ class ProductView(View):
 
         products = Products.objects.all()
         products_list = list(products)
+
+        prod_size = len(products_list)
+
         shuffle(products_list)
         active = [''] * 4
         active[0] = 'active'
         return render(request, 'Home/Home.html', {'products': products_list,
+                                                  'prod_size': range(1, ceil(prod_size/10)+1),
                                                   'active': active,
                                                   'logged': logged,
                                                   'user_info': user_info})
@@ -150,7 +155,8 @@ def edit_user(request, user_id):
     else:
         form = UserEditForm(instance=user)
     return render(request, 'Home/user_update.html', {'form': form,
-                                                     'user': user})
+                                                     'user': user,
+                                                     'logged': logged})
 
 
 def delete_user(request, user_id):

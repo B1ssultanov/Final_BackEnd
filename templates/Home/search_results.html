@@ -40,7 +40,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Monyedi</a>
+                <a class="navbar-brand" href="/"><img src="../media/logo/logo.png" style="width: 100px; margin: -30px; margin-top: -38px" alt="logo"></a>
             </div>
                 <div class="laptop">
                     <ul class="nav navbar-nav">
@@ -82,7 +82,7 @@
 
       {% if logged == True %}
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="user_details/{{ user_info.id }}">{{ user_info.username }}</a></li>
+            <li><a href="/user_details/{{ user_info.id }}">{{ user_info.username }}</a></li>
             <li><a href="logout/">Log Out</a></li>
         </ul>
       {% endif %}
@@ -95,7 +95,7 @@
         {% for i in items %}
             <div class="block">
                 <p style="text-wrap: normal; font-size: 2vw; text-align: center">{{ i.manufacturer }}</p>
-                <a href="{{ i.id }}"><img style="width: 100%;" src="{{ i.image.url }}" alt="{{ i.name }}"></a>
+                <a href="/{{ i.id }}"><img style="width: 100%;" src="{{ i.image.url }}" alt="{{ i.name }}"></a>
                 <p style="text-align: center; font-size: 2vw"><a href="{{ i.id }}" style="text-decoration: none; color: black">{{ i.name }}</a></p>
                 <br>
             </div>

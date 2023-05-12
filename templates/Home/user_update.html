@@ -4,7 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ user.username }}</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all"/>
 </head>
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><img src="../../../media/logo/logo.png" style="width: 100px; margin: -30px; margin-top: -38px" alt="logo"></a>
+            </div>
+                <div class="laptop">
+                    <ul class="nav navbar-nav">
+                        <li class=" {{ active.0 }} "><a href="/">Home</a></li>
+                        <li class=" {{ active.1 }} "><a href="/phone/">Phones</a></li>
+                        <li class=" {{ active.2 }} "><a href="/headphone/">Headphones</a></li>
+                        <li class=" {{ active.3 }} "><a href="/computer/">Laptops</a></li>
+                    </ul>
+                </div>
+                <div class="phones">
+                    <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/phone">Phone</a></li>
+                          <li><a href="/computer">Laptop</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>
+
+      {% if logged == False %}
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/register/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      {% endif %}
+
+      {% if logged == True %}
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="user_details/{{ user_info.id }}">{{ user_info.username }}</a></li>
+            <li><a href="logout/">Log Out</a></li>
+        </ul>
+      {% endif %}
+      </div>
+    </nav>
     <div class="editUser" style="border: black solid 3px; border-radius: 10px; width: 50%; position: relative; margin: auto; padding: 10px">
         <form method="POST">
             {% csrf_token %}
