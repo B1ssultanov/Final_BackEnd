@@ -131,16 +131,12 @@ background: rgb(192, 70, 18);
                 {% csrf_token %}
 {#                      {{ form.as_p }}#}
 {#                {{ form.error_messages.clear }}#}
-                
                     <input  placeholder="username"  {{ form.username }}
                     <input  placeholder="email"  {{ form.email }} 
                     <input  placeholder="password" {{ form.password1 }}
-                    <input  placeholder="password" {{ form.password2 }}
-<h1></h1>
-
-                  
-                
-                 <button>Sign Up</button>
+                    <input  placeholder="repeat password" {{ form.password2 }}
+                    <h4 style="color:orange"> {{ form.error_messages }} </h4>
+                <button>Sign Up</button>
             </form>
         </div>
     {% endblock %}

@@ -33,24 +33,24 @@ class ProductView(View):
         shuffle(products_list)
         active = [''] * 4
         active[0] = 'active'
-        return render(request, 'Home/Home.html', {'products':  products_list,
-                                                  'active':    active,
-                                                  'logged':    logged,
+        return render(request, 'Home/Home.html', {'products': products_list,
+                                                  'active': active,
+                                                  'logged': logged,
                                                   'user_info': user_info})
 
 
 class UserDetailView(View):
     def get(self, request, user_id):
         user = User.objects.get(id=user_id)
-        return render(request, 'Home/user_detail.html', {'user':   user,
+        return render(request, 'Home/user_detail.html', {'user': user,
                                                          'logged': logged})
 
 
 class ProductDetailView(View):
     def get(self, request, pk):
         product = Products.objects.get(id=pk)
-        return render(request, 'Home/Product_detail.html', {'product':   product,
-                                                            'logged':    logged,
+        return render(request, 'Home/Product_detail.html', {'product': product,
+                                                            'logged': logged,
                                                             'user_info': user_info})
 
 
@@ -61,9 +61,9 @@ class CategoryView(View):
         active = [''] * 4
         active[categories.id] = 'active'
 
-        return render(request, 'Home/Home.html', {'products':  products,
-                                                  'active':    active,
-                                                  'logged':    logged,
+        return render(request, 'Home/Home.html', {'products': products,
+                                                  'active': active,
+                                                  'logged': logged,
                                                   'user_info': user_info})
 
 
@@ -71,9 +71,9 @@ def admin_user(request):
     user = User.objects.all()
     categories = Categories.objects.all()
     product = Products.objects.all()
-    return render(request, 'Super/SuperUser.html', {'user':     user,
+    return render(request, 'Super/SuperUser.html', {'user': user,
                                                     'category': categories,
-                                                    'product':  product})
+                                                    'product': product})
 
 
 def register(request):
@@ -89,6 +89,10 @@ def register(request):
 
 def registration_success(request):
     return render(request, 'Authorization/Register_success.html')
+
+
+def login_success(request):
+    return render(request, 'Authorization/Login_success.html')
 
 
 def logout(request):
@@ -113,7 +117,7 @@ def login_view(request):
                 logged = True
                 if user_info.is_staff:
                     return redirect('admin_user')
-                return redirect('registration_success')
+                return redirect('login_success')
             else:
                 form.add_error(None, 'Invalid username or password')
     elif request.method == 'GET':
@@ -161,6 +165,6 @@ def search_results(request):
         items = Products.objects.filter(Q(name__icontains=query) | Q(characteristics__icontains=query))
     else:
         items = Products.objects.all()
-    return render(request, 'Home/search_results.html', {'items':     items,
-                                                        'logged':    logged,
+    return render(request, 'Home/search_results.html', {'items': items,
+                                                        'logged': logged,
                                                         'user_info': user_info})
