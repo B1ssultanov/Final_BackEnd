@@ -17,6 +17,71 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all"/>
 
     <style>::-webkit-scrollbar { width: 0;}</style>
+
+
+    <style>
+        body{
+            font-family: 'PT Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.428571429;
+            font-weight: 400;
+            color: azure;
+
+            background-color: rgb(31, 30, 30);
+            /* background: url("https://images.unsplash.com/photo-1485802007047-7774de7208e5?dpr=1&auto=compress,format&fit=crop&w=1800&h") no-repeat center center fixed; */
+            background-size: cover;
+
+            font-family: 'Droid Serif', serif;
+        }
+        .upload_file{
+            width:350px;
+            padding: 2rem 1rem;
+            margin:90px auto;
+            background: rgba(39, 37, 43, 0.5);
+            color: black;
+            border-radius: 35px;
+            text-align: center;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0. 1);
+             background: rgb(48, 47, 47);
+        }
+        h2{
+            font-size: 4rem;
+            color: rgb(242, 242, 242);
+            margin-bottom: 1.2rem;
+            font-family: 'Montserrat', sans-serif;;
+        }
+        p{
+            color: white;
+            position: relative;
+            display: block;
+        }
+        form input{
+            width: 100%;
+            outline: none;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            background: rgb(233, 234, 238);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        button{
+            font-size: 1rem;
+            margin-top: 1.8rem;
+            padding: 10px 0;
+            border-radius: 20px;
+            outline: none;
+            border:none;
+            font-size: 20px;
+            width: 90%;
+            color:white;
+            cursor: pointer;
+            background: rgb(233, 77, 69);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        button:hover{
+            background: rgb(192, 70, 18);
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -44,16 +109,6 @@
                     </li>
                     </ul>
                 </div>
-{#        <form class="navbar-form navbar-left" action="/action_page.php">#}
-{#            <div class="input-group">#}
-{#                <input type="text" class="form-control" placeholder="Search">#}
-{#                <div class="input-group-btn">#}
-{#                    <button class="btn btn-default" type="submit">#}
-{#                        <i class="glyphicon glyphicon-search"></i>#}
-{#                    </button>#}
-{#                </div>#}
-{#            </div>#}
-{#        </form>#}
 
         <ul class="nav navbar-nav navbar-right">
           <li><a href=""><span class="glyphicon glyphicon-user"></span> admin </a></li>
@@ -61,37 +116,24 @@
         </ul>
       </div>
     </nav>
-
+    <div class="upload_file" style="width: 30%">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
-{#            <label for="category">Write the Category of product in number:</label>#}
-{#            <input type="number" name="category" id="category">#}
-{#            <br>#}
-{#            <label for="manufacturer">Write the Manufacturer of product:</label>#}
-{#            <input type="text" name="manufacturer" id="manufacturer">#}
-{#            <br>#}
-{#            <label for="name">Write the Name of product:</label>#}
-{#            <input type="text" name="name" id="name">#}
-{#            <br>#}
-{#            <label for="price">Enter the Price of product:</label>#}
-{#            <input type="number" name="price" id="price">#}
-{#            <br>#}
-{#            <label for="characteristics">Write the Characteristics of product:</label>#}
-{#            <input type="text" name="characteristics" id="characteristics">#}
-{#            <br>#}
-{#            <label for="image">Upload an image of Product:</label>#}
-{#            <input type="file" name="image" id="image">#}
-{#            <br>#}
-{#            <label for="url">write the url of product(don't mandatory):</label>#}
-{#            <input type="text" name="url" id="url">#}
-{#            <br>#}
-            <input type="submit" value="Submit">
+            <p>Category: </p> {{ form.category }}
+            <p>Manufacturer: </p> {{ form.manufacturer }}
+            <p>Price: </p> {{ form.price }}
+            <p>Name: </p> {{ form.name }}
+            <p>Characteristics: </p> {{ form.characteristics }}
+            <p>url: </p> {{ form.url }}
+            <p>image: </p> {{ form.image }}
+
+            <input type="submit" value="Submit" style="background-color: lightgreen; width: 40%">
         </form>
-        <h3>status: {{ status }}</h3>
+        <p>status: {{ status }}</p>
         {% if status != '' %}
-            <h3><a href="/">Return into Home Page</a></h3>
-            <h3><a href="/admin_user/">Return into admin Page</a></h3>
+            <h3><a href="/" style="color: orange">Return into Home Page</a></h3>
+            <h3><a href="/admin_user/" style="color: orange">Return into admin Page</a></h3>
         {% endif %}
+    </div>
 </body>
 </html>

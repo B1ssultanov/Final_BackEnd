@@ -17,26 +17,6 @@
     <link rel="stylesheet" href="{% static 'css/style_home.css' %}" type="text/css" media="all">
 
     <style>::-webkit-scrollbar { width: 0;}</style>
-
-    <style>
-        .block{
-            display: inline-block;
-            position: relative;
-            margin: auto;
-            max-width: 300px;
-            padding: 20px;
-            border: 5px black solid;
-            border-radius: 10px;
-            margin: 20px;
-            {#position: relative;#}
-            {#background-color: white;#}
-            {#border: 1px solid black;#}
-            {#border-radius: 10px;#}
-            {#margin: 15px;#}
-            {#max-width: 320px;#}
-            {#align-content: center;#}
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -85,7 +65,7 @@
       {% if logged == True %}
         <ul class="nav navbar-nav navbar-right">
             <li><a href="user_details/{{ user_info.id }}">{{ user_info.username }}</a></li>
-            <li><a href="logout/">Log Out</a></li>
+            <li><a href="/logout/">Log Out</a></li>
         </ul>
       {% endif %}
       </div>
@@ -104,7 +84,7 @@
             </div>
             <div class="cardBottom">
                 <div class="cardPrice">
-                    <div>{{ i.price }}</div>
+                    <div>{{ i.price }}₸</div>
                 </div>
 
                 <a href="/{{ i.id }}" class="hrefButton">

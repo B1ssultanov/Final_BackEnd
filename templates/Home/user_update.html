@@ -17,6 +17,67 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all"/>
 
     <style>::-webkit-scrollbar { width: 0;}</style>
+
+
+    <style>
+        body{
+            font-family: 'PT Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.428571429;
+            font-weight: 400;
+            color: azure;
+
+            background-color: rgb(31, 30, 30);
+            /* background: url("https://images.unsplash.com/photo-1485802007047-7774de7208e5?dpr=1&auto=compress,format&fit=crop&w=1800&h") no-repeat center center fixed; */
+            background-size: cover;
+
+            font-family: 'Droid Serif', serif;
+        }
+        .editUser{
+            width:350px;
+            padding: 2rem 1rem;
+            margin:90px auto;
+            background: rgba(39, 37, 43, 0.5);
+            color: black;
+            border-radius: 35px;
+            text-align: center;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0. 1);
+             background: rgb(48, 47, 47);
+        }
+        h2{
+            font-size: 4rem;
+            color: rgb(242, 242, 242);
+            margin-bottom: 1.2rem;
+            font-family: 'Montserrat', sans-serif;;
+        }
+        form input{
+            width: 92%;
+            outline: none;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            background: rgb(233, 234, 238);
+            color: black;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        button{
+            font-size: 1rem;
+            margin-top: 1.8rem;
+            padding: 10px 0;
+            border-radius: 20px;
+            outline: none;
+            border:none;
+            font-size: 20px;
+            width: 90%;
+            color:white;
+            cursor: pointer;
+            background: rgb(233, 77, 69);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        button:hover{
+            background: rgb(192, 70, 18);
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -60,13 +121,14 @@
       {% endif %}
       </div>
     </nav>
-    <div class="editUser" style="border: black solid 3px; border-radius: 10px; width: 50%; position: relative; margin: auto; padding: 10px">
+    <div class="editUser" style="width: 30%; position: relative; margin: auto; padding: 10px">
+        <h2>Edit User</h2>
         <form method="POST">
             {% csrf_token %}
-            <h4><pre>Username:               {{ form.username }}</pre></h4>
-            <h4><pre>Email:                  {{ form.email }}</pre></h4>
-            <h4><pre>First Name:             {{ form.first_name }}</pre></h4>
-            <h4><pre>Last Name:              {{ form.last_name }}</pre></h4>
+            <input placeholder="Username" {{ form.username }}
+            <input placeholder="Username" {{ form.email }}
+            <input placeholder="Username" {{ form.first_name }}
+            <input placeholder="Username" {{ form.last_name }}
             <p>{{ form.errors }}</p>
             <button type="submit">Save Changes</button>
         </form>

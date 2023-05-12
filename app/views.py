@@ -155,7 +155,7 @@ def edit_user(request, user_id):
     else:
         form = UserEditForm(instance=user)
     return render(request, 'Home/user_update.html', {'form': form,
-                                                     'user': user,
+                                                     'user_info': user,
                                                      'logged': logged})
 
 

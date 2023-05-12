@@ -18,6 +18,23 @@
     <link rel="stylesheet" href="{% static 'css/style_home.css' %}" type="text/css" media="all"/>
 
     <style>::-webkit-scrollbar { width: 0;}</style>
+
+    <style>
+        .tables{
+            justify-content: center;
+        }
+        table{
+            position: relative;
+        }
+        .products{
+            float: right;
+        }
+        @media screen and (max-width: 870px) {
+            .products{
+                float: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -62,42 +79,77 @@
         </ul>
       </div>
     </nav>
-    <div style="margin-left: 100px">
-        <h2>Users</h2>
-        {% for users in user %}
-            <div>
-                <ul>
-                    <li>
-                        {{ users.username }}
-                        <a href="/delete_user/{{ users.id }}/" style="color: red; font-size: 20px">Delete</a>
-                        <a href="/user_details/{{ users.id }}/user_update/" style="font-size: 20px">Edit</a>
-                    </li>
-                </ul>
-            </div>
-        {% endfor %}
-        <br><br>
-        <h2>Categories</h2>
-        {% for categories in category %}
-            <div>
-                <ul>
-                    <li>{{ categories.category }}</li>
-                    <li>{{ categories.id }}</li>
-                </ul>
-                <br>
-            </div>
-        {% endfor %}
-        <h2>Products</h2>
-        {% for products in product %}
-            <div>
-                <ul>
-                    <li>{{ products.name }}</li>
-                    <li>{{ products.price }}</li>
-                </ul>
-                <br>
-            </div>
-        {% endfor %}
-        <h3><a href="/upload_files/">Add data to the Products</a></h3>
+    <div class="tables">
+        <div class="products">
+            <h2>Products</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Manufacturer</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in product %}
+                <tr>
+                  <th scope="row">{{ i.id }}</th>
+                  <td>{{ i.name }}</td>
+                  <td>{{ i.price }}</td>
+                  <td>{{ i.manufacturer }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+
+        <div class="other_tables" style="width: 40%">
+        <h1>Users</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Username</th>
+              <th scope="col">Delete</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in user %}
+            <tr>
+              <th scope="row">{{ i.id }}</th>
+              <td>{{ i.username }}</td>
+              <td><a href="/delete_user/{{ users.id }}/" style="color: red; font-size: 20px">Delete</a></td>
+              <td><a href="/user_details/{{ users.id }}/user_update/" style="font-size: 20px">Edit</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+            <br><br>
+
+        <h1>Categories</h1>
+        <table class="table table-stripped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">category</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in category %}
+            <tr>
+              <th scope="row">{{ i.id }}</th>
+              <td>{{ i.category }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        </div>
+            <br><br>
     </div>
+        <h3><a href="/upload_files/">Add data to the Products</a></h3>
 
 
     <div class="footer">
