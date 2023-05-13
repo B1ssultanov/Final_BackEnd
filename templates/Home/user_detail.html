@@ -22,8 +22,63 @@
     <style>::-webkit-scrollbar { width: 0;}</style>
 
     <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(206,213,223);
+        }
         h2{
             text-align: center;
+        }
+        .topper_user{
+            margin-bottom: 40px;
+            border-radius: 10px;
+            border: 5px solid gray;
+            width: 500px;
+            height: 650px;
+            background-color: white;
+            align-self: center;
+        }
+        .UserProfile{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info_user{
+            margin-top: 20px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 80%;
+            height: 280px;
+            border-radius: 10px;
+            border: 5px solid rgb(105, 105, 207);
+            background-color: rgba(135, 135, 242, 0.869);
+        }
+
+        .info_user h2{
+            font-size: 19px;
+        }
+
+        .btn{
+            color:blue;
+        }
+        .buttons{
+            position: relative;
+            margin: auto;
+            text-align: center;
+            border-radius: 10px;
+            border: rgb(105, 105, 207) solid 4px;
+            width: max-content;
+            transition: 0.5s ease;
+        }
+        #deleteButton:hover{
+            background-color: red;
+        }
+        #editButton:hover{
+            background-color: orange;
         }
     </style>
 </head>
@@ -69,22 +124,32 @@
       {% endif %}
       </div>
     </nav>
-    <div class="topper">
-        <div class="UserProfile" style="border-radius: 5px; border: black solid 3px; width: 50%; position: relative; margin: auto">
-            <h2>Username: {{ user.username }}</h2>
-            <h2>Email: {{ user.email }}</h2>
-            <h2>Joined Date: {{ user.date_joined }}</h2>
-            {% if user.first_name != '' %}
-                <h2>First Name: {{ user.first_name }}</h2>
-            {% endif %}
-            {% if user.last_name != '' %}
-                <h2>Last Name: {{ user.last_name }}</h2>
-            {% endif %}
-            {% if user.is_superuser %}
-                <h2 style="color: red">You are a Super user</h2>
-            {% endif %}
-            <h4 style="position: relative; margin: auto; text-align: center; border-radius: 10px; border: grey solid 2px; width: max-content"><a href="user_update/">edit profile</a></h4>
-            <h4 style="position: relative; margin: auto; text-align: center; border-radius: 10px; border: grey solid 2px; width: max-content"><a href="/delete_user/{{ user.id }}">delete user</a></h4>
+    <div class="topper_user">
+        <div class="UserProfile">
+            <h2 style="font-size: 40px; font-weight: 600;">{{ user.username }}</h2>
+            <h2 style="font-size: 20px; margin-top: 0px; margin-bottom: 30px;">{{ user.email }}</h2>
+
+            <img src="../../media/images/user/Basic_Ui_(186).jpg" height="150px" style="border-radius: 50%; border: 5px solid grey" >
+
+            <div class="info_user">
+                <div style="display: flex; width: 100%; justify-content: space-between;">
+                    <div>
+                        <h2 style="">First Name: {{ user.first_name }}</h2>
+                        <h2 style="margin-top: 10px; margin-left: 5px;">Last Name: {{ user.last_name }}</h2>
+                    </div>
+                    {% if user.is_staff%}
+                        <div>
+                            <h2 style="color: rgb(68, 0, 255); margin-right: 10px;">"Super user"</h2>
+                        </div>
+                    {% endif %}
+                </div>
+                <h2 style="font-size: 18px; align-self: auto;">Member Since: <b>{{ user.date_joined }}</b></h2>
+
+                <div style="display: flex; align-self: center; width: 70%; margin-top: 40px">
+                    <div class="buttons" id="editButton"><a href="user_update/" class="btn" style="font-size: 20px; padding: 5px;">edit profile</a></div>
+                    <div class="buttons" id="deleteButton"><a href="/delete_user/{{ user.id }}" class="btn" style="font-size: 20px; padding: 5px;">delete user</a></div>
+                </div>
+            </div>
         </div>
     </div>
 

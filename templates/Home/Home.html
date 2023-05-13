@@ -64,7 +64,7 @@
 
       {% if logged == True %}
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="user_details/{{ user_info.id }}">{{ user_info.username }}</a></li>
+            <li><a href="/user_details/{{ user_info.id }}">{{ user_info.username }}</a></li>
             <li><a href="/logout/">Log Out</a></li>
         </ul>
       {% endif %}

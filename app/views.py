@@ -116,7 +116,6 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 global logged, user_info
-                # user_info = user
                 user_info = User.objects.get(username=username)
                 print(user_info.password)
                 logged = True
